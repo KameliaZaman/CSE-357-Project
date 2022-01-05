@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block content %} 
+<h1>Solution</h1>
+<table class="table mb-0">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Semester</th>
+            <th>Question</th>
+            <th>Solution</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for quesAndSolution in quesAndSolutions %}
+        <tr>
+            <td>{{ quesAndSolution.subject }}</td>
+            <td>{{ quesAndSolution.semester }}</td>
+            <td>
+                {% if quesAndSolution.question %}
+                    <a href= "{{ quesAndSolution.question.url }}" class="btn btn-primary
+                    btn-sm" target ="_blank">Download PDF</a>
+                {% endif %}
+                </td>
+            <td><a href= "{{ quesAndSolution.solution.url }}" class="btn btn-primary
+                btn-sm" target ="_blank">Download PDF</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

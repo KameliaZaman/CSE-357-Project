@@ -5,13 +5,13 @@ Project on Online Class & Examination System
 
 --> Clone the repository using the command below :
 ```bash
-git clone https://github.com/divanov11/StudyBud.git
+https://github.com/KameliaZaman/CSE-357-Project.git
 
 ```
 
 --> Move into the directory where we have the project files : 
 ```bash
-cd StudyBud
+cd OnlineClassAndExam
 
 ```
 
@@ -21,19 +21,13 @@ cd StudyBud
 pip install virtualenv
 
 # Then we create our virtual environment
-virtualenv envname
+virtualenv env
 
 ```
 
 --> Activate the virtual environment :
 ```bash
-envname\scripts\activate
-
-```
-
---> Install the requirements :
-```bash
-pip install -r requirements.txt
+source env/bin/activate
 
 ```
 

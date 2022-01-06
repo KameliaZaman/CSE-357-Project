@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
+from django.db.models import Q
 from .forms import questionAndSolutionForm
 from .models import questionAndSolution
 # Create your views here.
@@ -17,7 +18,11 @@ def upload(request):
     return render(request, 'upload.html', context)
 
 def showQuestionAndSolutionList(request):
-    quesAndSolutions = questionAndSolution.objects.all()
+    q = request.GET.get('q') if request.GET.get('q')!=None  else ''
+    quesAndSolutions = questionAndSolution.objects.filter(
+        Q(subject__icontains= q)|
+        Q(semester__icontains= q)
+        )
     return render(request,'quesAndSolveList.html',{'quesAndSolutions':quesAndSolutions})
 
 def uploadQuestionAndSolution(request):

@@ -1,6 +1,18 @@
 {% extends 'base.html' %} 
 {% block content %} 
-<h1>Solution</h1>
+<div class="container"> 
+    <div class="searchbar">
+        <form method='GET' action="">
+            <input type="text" name="q" placeholder="Search here..."/><br><br>
+        </form>
+        <div>
+            <a href="{% url 'show' %}" class ="btn btn-secondary" style="padding: 10px;">All</a>
+        </div>
+        <br>
+        <hr>
+    </div> 
+
+<h2>Different Semesters Question and Solution</h2>
 <table class="table mb-0">
     <thead>
         <tr>
@@ -18,7 +30,7 @@
             <td>
                 {% if quesAndSolution.question %}
                     <a href= "{{ quesAndSolution.question.url }}" class="btn btn-primary
-                    btn-sm" target ="_blank">Download PDF</a>
+                    btn-sm" target ="_blank">View Question</a>
                 {% endif %}
                 </td>
             <td><a href= "{{ quesAndSolution.solution.url }}" class="btn btn-primary
@@ -27,4 +39,5 @@
         {% endfor %}
     </tbody>
 </table>
+</div>
 {% endblock %}

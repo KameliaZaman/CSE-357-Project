@@ -1,0 +1,68 @@
+{% extends 'recordings/base.html' %}
+
+{% block title %}
+Recordings
+{% endblock title %}
+
+{% block search %} 
+
+<form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0"  type="submit">Search</button>
+      </form> 
+
+        <button class="btn btn-outline-success m-2  my-sm-0" name="all" ><a href="./" style="color: rgb(30, 182, 68);
+            text-decoration: none;">All Videos</a> </button>
+
+{% endblock  %} 
+
+
+{% block body %}
+
+<div class="container my-5">
+
+    <div class="my-6">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-5 my-2 ">
+                <h4 class="text-center">Video</h4>
+            </div>
+            <div class="col-md-5 my-2">
+                <h4 class="text-center mt-2 mb-2 text-align: justify;">Video Caption</h4>
+            </div>
+            <div class="col-md-2 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Course Name</h5>
+
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    {% for x in all %}
+
+    <div class="my-6">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-5 my-2">
+                <video class="embed-responsive embed-responsive-16by9" controls="controls">
+                    <source src="{{x.video.url}}" type="video/mp4" />
+                </video>
+            
+            </div>
+            <div class="col-md-5 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">{{x.caption}}</h5>
+
+            </div>
+            <div class="col-md-2 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">{{x.courseName}}</h5>
+
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

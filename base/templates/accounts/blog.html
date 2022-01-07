@@ -1,0 +1,18 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<h1>Post</h1>
+<ul>
+{%for blog in object_list %}
+{% if request.user.is_staff %}
+<li><a href="{%url 'blogDetail' blog.pk %}">{{blog.title}}</a>  - {{blog.author}} -<a href="{%url 'updateBlog' blog.pk %}">Edit</a> <br>
+
+    {% else %}
+    <li><a href="{%url 'blogDetail' blog.pk %}">{{blog.title}}</a>  - {{blog.author}} <br>
+    {% endif %}
+
+    {{blog.body}}</li>
+
+{%endfor%}
+</ul>
+{% endblock %}

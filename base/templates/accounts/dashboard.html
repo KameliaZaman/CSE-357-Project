@@ -1,0 +1,31 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Students:</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Student Name</th>
+					<th>Phone</th>
+				</tr>
+
+				{% for user in users %}
+					<tr>
+						<td>{{user.userName}}</td>
+						<td>{{user.userPhone}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

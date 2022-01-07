@@ -1,0 +1,17 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+<h1>Edit Blog</h1>
+<br><br>
+
+
+
+<form action="" method="post">
+{% csrf_token %}
+{{form.as_p}}
+<button class="btn btn-secondary">Update</button>
+</form>
+
+
+
+{% endblock %}

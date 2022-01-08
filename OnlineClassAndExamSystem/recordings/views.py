@@ -4,6 +4,18 @@ from .models import Video
 from django.db.models import Q
 
 def index(request):
+    """
+    Collect information for an individual :model:`recording.Video`.
+
+    **Context**
+
+    ``Video``
+        An instance of :model:`recording.Video`.
+
+    **Template:**
+
+    :template:`recordings/index.html`
+    """
 
     form=videoForm()
     if request.method == "POST":
@@ -15,6 +27,18 @@ def index(request):
     return render(request,'recordings/index.html',{"form":form})
 
 def showVideo(request):
+    """
+    Display an individual :model:`recording.Video`.
+
+    **Context**
+
+    ``Video``
+        An instance of :model:`recording.Video`.
+
+    **Template:**
+
+    :template:`recording/showVideo.html`
+    """
     if 'q' in request.GET:
         q=request.GET['q']
         # allVideo=Video.objects.filter(courseName__icontains=q)

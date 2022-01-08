@@ -1,7 +1,7 @@
 {% extends 'recordings/base.html' %}
 
 {% block title %}
-Recordings
+Lecture Video Recordings
 {% endblock title %}
 
 {% block search %} 
@@ -21,7 +21,7 @@ Recordings
 
 <div class="container my-5">
 
-    <div class="my-6">
+    <div class="my-6" style="background-color: antiquewhite;">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-5 my-2 ">
                 <h4 class="text-center">Video</h4>
@@ -39,7 +39,7 @@ Recordings
     <hr>
     {% for x in all %}
 
-    <div class="my-6">
+    <div class="my-6" style="background-color: antiquewhite;">
         <div class="row justify-content-center align-items-center">
             <div class="col-md-5 my-2">
                 <video class="embed-responsive embed-responsive-16by9" controls="controls">
@@ -48,7 +48,7 @@ Recordings
             
             </div>
             <div class="col-md-5 my-2">
-                <h5 class="text-center mt-2 mb-2 text-align: justify;">{{x.caption}}</h5>
+                <h6 class="text-center mt-2 mb-2 text-align: justify;">{{x.caption}}</h6>
 
             </div>
             <div class="col-md-2 my-2">

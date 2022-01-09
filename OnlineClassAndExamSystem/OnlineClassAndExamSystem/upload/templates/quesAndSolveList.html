@@ -2,9 +2,11 @@
 {% block content %} 
 <div class="container"> 
     <div class="searchbar">
+        <div class="form-group">
         <form method='GET' action="">
-            <input type="text" name="q" placeholder="Search here..."/><br><br>
+            <input type="text"  class="form-control" name="q" placeholder="Search here..."/><br><br>
         </form>
+    </div>
         <div>
             <a href="{% url 'show' %}" class ="btn btn-secondary" style="padding: 10px;">All</a>
         </div>
@@ -12,7 +14,7 @@
         <hr>
     </div> 
 
-<h2>Different Semesters Question and Solution</h2>
+<h2>Different Semester's Question and Solution</h2>
 <table class="table mb-0">
     <thead>
         <tr>

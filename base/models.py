@@ -17,4 +17,4 @@ class userAccount(models.Model):
 		"""
 		Displays the entered value to the site.
 		"""
-		return str(self.user.userName)
+		return str(self.userName)

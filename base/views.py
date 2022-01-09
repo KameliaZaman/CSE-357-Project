@@ -17,7 +17,16 @@ from .decorators import unauthenticatedUser, allowedUsers, adminOnly
 
 @unauthenticatedUser
 def registerPage(request):
+	"""
+	Display register page :model:'userAccount'.
 
+	**Context**
+	''form''
+		An instance of :model:'createUserForm.User'.
+
+	**Template:**
+	:template:'accounts/register.html'
+	"""
 	form = createUserForm()
 	if request.method == 'POST':
 		form = createUserForm(request.POST)
@@ -42,7 +51,15 @@ def registerPage(request):
 
 @unauthenticatedUser
 def loginPage(request):
+	"""
+	Display login page :model:' '.
 
+	**Context**
+	''none''
+
+	**Template:**
+	:template:'accounts/login.html'
+	"""
 	if request.method == 'POST':
 		username = request.POST.get('username')
 		password =request.POST.get('password')
@@ -59,12 +76,31 @@ def loginPage(request):
 	return render(request, 'accounts/login.html', context)
 
 def logoutUser(request):
+	"""
+	Display login page after logging out :model:' '.
+
+	**Context**
+	''none''
+
+	**Template:**
+	:template:'accounts/login.html'
+	"""
 	logout(request)
 	return redirect('login')
 
 @login_required(login_url='login')
 @adminOnly
 def home(request):
+	"""
+	Display home page for teachers :model:'userAccount'.
+
+	**Context**
+	''users''
+		An instance of :model:'userForm.User'.
+
+	**Template:**
+	:template:accounts/dashboard.html'
+	"""
 	users = userAccount.objects.all()
 	context={'users':users}
 	return render(request, 'accounts/dashboard.html',context)
@@ -72,7 +108,22 @@ def home(request):
 @login_required(login_url='login')
 @allowedUsers(allowedRoles=['student'])
 def userPage(request):
-	
+	"""
+	Display home page for students :model:' '.
+
+	**Context**
+	''none''
+
+	**Template:**
+	:template:accounts/user.html'
+	"""
 	return render(request, 'accounts/user.html')
 
 
+@login_required(login_url='login')
+@allowedUsers(allowedRoles=['admin'])
+def profileView(request, pk_test):
+	user = userAccount.objects.get(id=pk_test)
+
+	context = {'user':user}
+	return render(request, 'accounts/profile.html',context)

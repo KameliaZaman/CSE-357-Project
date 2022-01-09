@@ -6,6 +6,9 @@ from django import forms
 from .models import *
 
 class userForm(ModelForm):
+	"""
+	Login page form
+	"""
 	class Meta:
 		model = userAccount
 		fields = '__all__'
@@ -13,6 +16,9 @@ class userForm(ModelForm):
 
 
 class createUserForm(UserCreationForm):
+	"""
+	Register page form
+	"""
 	class Meta:
 		model = User
 		fields = ['username', 'email', 'password1', 'password2']

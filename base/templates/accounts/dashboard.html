@@ -17,6 +17,7 @@
 
 				{% for user in users %}
 					<tr>
+						<td><a class="btn btn-sm btn-info" href="{% url 'user' user.id %}">View</a></td>
 						<td>{{user.userName}}</td>
 						<td>{{user.userPhone}}</td>
 					</tr>

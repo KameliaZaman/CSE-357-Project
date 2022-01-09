@@ -2,6 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 
 def unauthenticatedUser(viewFunc):
+	"""
+	Method for registered users before grouping them
+	"""
 	def wrapperFunc(request, *args, **kwargs):
 		if request.user.is_authenticated:
 			return redirect('home')
@@ -11,6 +14,9 @@ def unauthenticatedUser(viewFunc):
 	return wrapperFunc
 
 def allowedUsers(allowedRoles=[]):
+	"""
+	Method for registered users after grouping them
+	"""
 	def decorator(viewFunc):
 		def wrapperFunc(request, *args, **kwargs):
 
@@ -26,6 +32,9 @@ def allowedUsers(allowedRoles=[]):
 	return decorator
 
 def adminOnly(viewFunc):
+	"""
+	Method for admins
+	"""
 	def wrapperFunction(request, *args, **kwargs):
 		group = None
 		if request.user.groups.exists():

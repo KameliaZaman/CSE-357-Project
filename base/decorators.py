@@ -3,9 +3,12 @@ from django.shortcuts import redirect
 
 def unauthenticatedUser(viewFunc):
 	"""
-	Method for registered users before grouping them
+	Method for unregistered and ungrouped persons
 	"""
 	def wrapperFunc(request, *args, **kwargs):
+		"""
+		Checks whether a person can view certain pages.
+		"""
 		if request.user.is_authenticated:
 			return redirect('home')
 		else:
@@ -15,11 +18,13 @@ def unauthenticatedUser(viewFunc):
 
 def allowedUsers(allowedRoles=[]):
 	"""
-	Method for registered users after grouping them
+	Method for registered users
 	"""
 	def decorator(viewFunc):
 		def wrapperFunc(request, *args, **kwargs):
-
+			"""
+			Checks whether a user is restricted to view any page
+			"""
 			group = None
 			if request.user.groups.exists():
 				group = request.user.groups.all()[0].name

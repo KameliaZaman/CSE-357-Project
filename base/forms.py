@@ -5,16 +5,6 @@ from django import forms
 
 from .models import *
 
-class userForm(ModelForm):
-	"""
-	Login page form
-	"""
-	class Meta:
-		model = userAccount
-		fields = '__all__'
-		exclude = ['user']
-
-
 class createUserForm(UserCreationForm):
 	"""
 	Register page form

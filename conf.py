@@ -15,17 +15,15 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.append('base')
 sys.path.append('OnlineClassAndExamSystem')
-sys.path.append('manage.py')
-
 
 # -- Project information -----------------------------------------------------
 
-project = 'OnlineClassAndExam'
-copyright = '2022, kamelia'
-author = 'kamelia'
+project = 'OnlineClassAndExamSystem'
+copyright = '2022, Kamelia Zaman Moon'
+author = 'Kamelia Zaman Moon'
 
 # The full version, including alpha/beta/rc tags
-release = '1'
+release = '1.1'
 
 
 # -- General configuration ---------------------------------------------------

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>base package &#8212; OnlineClassAndExam 1 documentation</title>
+    <title>base package &#8212; OnlineClassAndExamSystem 1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -16,7 +16,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="OnlineClassAndExamSystem package" href="OnlineClassAndExamSystem.html" />
-    <link rel="prev" title="Welcome to OnlineClassAndExam’s documentation!" href="../index.html" />
+    <link rel="prev" title="Welcome to OnlineClassAndExamSystem’s documentation!" href="../index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -71,13 +71,13 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="base.decorators.allowedUsers">
 <span class="sig-prename descclassname"><span class="pre">base.decorators.</span></span><span class="sig-name descname"><span class="pre">allowedUsers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowedRoles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base.decorators.allowedUsers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method for registered users after grouping them</p>
+<dd><p>Method for registered users</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="base.decorators.unauthenticatedUser">
 <span class="sig-prename descclassname"><span class="pre">base.decorators.</span></span><span class="sig-name descname"><span class="pre">unauthenticatedUser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">viewFunc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base.decorators.unauthenticatedUser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Method for registered users before grouping them</p>
+<dd><p>Method for unregistered and ungrouped persons</p>
 </dd></dl>
 
 </section>
@@ -118,51 +118,6 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="base.forms.createUserForm.media">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#base.forms.createUserForm.media" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return all media required to render the widgets on this form.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="base.forms.userForm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">base.forms.</span></span><span class="sig-name descname"><span class="pre">userForm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">files=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_id='id_%s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_suffix=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty_permitted=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_required_attribute=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">renderer=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#base.forms.userForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
-<p>Login page form</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="base.forms.userForm.Meta">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#base.forms.userForm.Meta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="base.forms.userForm.Meta.exclude">
-<span class="sig-name descname"><span class="pre">exclude</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['user']</span></em><a class="headerlink" href="#base.forms.userForm.Meta.exclude" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="base.forms.userForm.Meta.fields">
-<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#base.forms.userForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="base.forms.userForm.Meta.model">
-<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#base.forms.userForm.Meta.model" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#base.models.userAccount" title="base.models.userAccount"><code class="xref py py-class docutils literal notranslate"><span class="pre">base.models.userAccount</span></code></a></p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="base.forms.userForm.base_fields">
-<span class="sig-name descname"><span class="pre">base_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'fullName':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'userEmail':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'userName':</span> <span class="pre">&lt;django.forms.models.ModelChoiceField</span> <span class="pre">object&gt;,</span> <span class="pre">'userPhone':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#base.forms.userForm.base_fields" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="base.forms.userForm.declared_fields">
-<span class="sig-name descname"><span class="pre">declared_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#base.forms.userForm.declared_fields" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="base.forms.userForm.media">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">media</span></span><a class="headerlink" href="#base.forms.userForm.media" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all media required to render the widgets on this form.</p>
 </dd></dl>
 
@@ -279,7 +234,7 @@ object the first time, the query is executed.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">OnlineClassAndExam</a></h1>
+<h1 class="logo"><a href="../index.html">OnlineClassAndExamSystem</a></h1>
 
 
 
@@ -311,7 +266,7 @@ object the first time, the query is executed.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to OnlineClassAndExam’s documentation!</a></li>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to OnlineClassAndExamSystem’s documentation!</a></li>
       <li>Next: <a href="OnlineClassAndExamSystem.html" title="next chapter">OnlineClassAndExamSystem package</a></li>
   </ul></li>
 </ul>
@@ -339,7 +294,7 @@ object the first time, the query is executed.</p>
       <div class="clearer"></div>
     </div>
     <div class="footer">
-      &copy;2022, kamelia.
+      &copy;2022, Kamelia Zaman Moon.
       
       |
       Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>

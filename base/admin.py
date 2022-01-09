@@ -4,3 +4,7 @@ from django.contrib import admin
 from .models import *
 
 admin.site.register(userAccount)
+
+"""
+model: userAccount- for storing user informations
+"""

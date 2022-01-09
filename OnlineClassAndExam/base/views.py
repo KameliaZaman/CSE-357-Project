@@ -15,7 +15,8 @@ from django.db.models import Q
 def homePage(request):
 
 	"""This is the home page of our site.
-	Args: ([String]): [request]	
+	Args: 
+		([String]): [request]	
 
 	Returns:
 		[String]: [render home page]
@@ -32,7 +33,7 @@ def topicsPage(request):
 	""" This function shows all the disscussion topics.
 
 	Args:
-			request ([String]): [request]
+		request ([String]): [request]
 
 	Attributes:
 	----------
@@ -40,7 +41,7 @@ def topicsPage(request):
 	discussTopic: Indicate the all discussion topic objects.
 
 	Returns:
-			[String]: [renders topics page]
+		[String]: [renders topics page]
 	"""
 	q = request.GET.get('q') if request.GET.get('q') != None else ''
 	discussTopic = discussionTopic.objects.filter(name__icontains=q)
@@ -56,8 +57,8 @@ def room(request, pk):
 	""" This function created room of discussion.
 
 	Args:
-			request ([String]): [request]
-			pk ([int]): [returns id]
+		request ([String]): [request]
+		pk ([int]): [returns id]
 
 	Attributes:
 	----------
@@ -66,7 +67,7 @@ def room(request, pk):
 	participants: Shows all the participants of the room.
 
 	Returns:
-			[String]: [redirects to home page]
+		[String]: [redirects to home page]
 	"""
 	room = discussionRoom.objects.get(id=pk)
 	roomMessages = room.message_set.all()
@@ -103,7 +104,12 @@ def createRoomSingleton(request):
 	topics: Indicate the all discussion topic of the room.
 
 	Returns:
-			[String]: [renders room form page]
+		[String]: [renders room form page]
+	"""
+	
+	"""
+	** Context **
+	form: An instance of :model:'roomForm.User'.
 	"""
 	form = roomForm()
 	topics = discussionTopic.objects.all()

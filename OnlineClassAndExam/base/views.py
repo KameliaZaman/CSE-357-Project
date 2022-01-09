@@ -14,17 +14,18 @@ from django.db.models import Q
 
 def homePage(request):
 
-		"""This is the home page of our site.
-		Args: ([String]): [request]	
+	"""This is the home page of our site.
+	Args: ([String]): [request]	
 
-		Returns:
-			[String]: [render home page]
-		"""
-		"""
-		** Templates: **
-		:template: `base/homePage.html`
-		"""
-		return render(request, 'base/homePage.html')
+	Returns:
+		[String]: [render home page]
+	"""
+		
+	"""
+	** Templates: **
+	:template: `base/homePage.html`
+	"""
+	return render(request, 'base/homePage.html')
 
 
 def topicsPage(request):
@@ -94,7 +95,7 @@ def createRoomSingleton(request):
 	""" This function creates room of discussion.
 
 	Args:
-			request ([String]): [request]
+		request ([String]): [request]
 
 	Attributes:
 	----------
@@ -128,8 +129,8 @@ def updateRoomSingleton(request, pk):
 	""" This function updates room of discussion.
 
 	Args:
-			request ([String]): [request]
-			pk ([int]): [returns room id]
+		request ([String]): [request]
+		pk ([int]): [returns room id]
 
 	Attributes:
 	----------
@@ -168,11 +169,11 @@ def deleteRoomSingleton(request, pk):
 	"""Authenticated user can delete rooms.
 
 	Args:
-			request ([String]): [request]
-			pk ([id]): [returns room id]
+		request ([String]): [request]
+		pk ([id]): [returns room id]
 
 	Returns:
-			[String]: [render delete page]
+		[String]: [render delete page]
 	"""
 	room = discussionRoom.objects.get(id=pk)
 
@@ -180,23 +181,24 @@ def deleteRoomSingleton(request, pk):
 		return HttpResponse('Your are not allowed here!!')
 
 	if request.method == 'POST':
-			room.delete()
-			return redirect('home')
-			"""
-			** Templates: **
-			:template: `base/delete.html`
-			"""
+		room.delete()
+		return redirect('home')
+		
+		"""
+		** Templates: **
+		:template: `base/delete.html`
+		"""
 	return render(request, 'base/delete.html', {'obj': room})
 
 def deleteMessageSingleton(request, pk):
 	""" Authenticated user can delete messages inside the room.
 
 	Args:
-			request ([String]): [request]
-			pk ([int]): [returns room id]
+		request ([String]): [request]
+		pk ([int]): [returns room id]
 
 	Returns:
-			[String]: [renders delete page]
+		[String]: [renders delete page]
 	"""
 	message = messageOnTopic.objects.get(id=pk)
 
@@ -216,13 +218,13 @@ def activityPageSingleton(request):
 	""" Shows the recent activity page.
 
 	Args:
-			request ([String]): [request]
+		request ([String]): [request]
 	Attributes:
 	---------
 	roomMessages: Gets all the certain room messages.
 
 	Returns:
-			[String]: [renders activity page]
+		[String]: [renders activity page]
 	"""
 	roomMessages = messageOnTopic.objects.all()
 	return render(request, 'base/activity.html', {'room_messages': roomMessages})

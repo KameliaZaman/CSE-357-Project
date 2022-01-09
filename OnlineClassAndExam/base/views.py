@@ -92,7 +92,7 @@ def room(request, pk):
 	return render(request, 'base/room.html', context)
 
 
-def createRoomSingleton(request):
+def createRoom(request):
 	""" This function creates room of discussion.
 
 	Args:
@@ -131,7 +131,7 @@ def createRoomSingleton(request):
 	context = {'form': form, 'topics': topics}
 	return render(request, 'base/roomForm.html', context)
 
-def updateRoomSingleton(request, pk):
+def updateRoom(request, pk):
 	""" This function updates room of discussion.
 
 	Args:
@@ -171,7 +171,7 @@ def updateRoomSingleton(request, pk):
 	context = {'form': form, 'topics': topics, 'room': room}
 	return render(request, 'base/roomForm.html', context)
 
-def deleteRoomSingleton(request, pk):
+def deleteRoom(request, pk):
 	"""Authenticated user can delete rooms.
 
 	Args:
@@ -196,7 +196,7 @@ def deleteRoomSingleton(request, pk):
 		"""
 	return render(request, 'base/delete.html', {'obj': room})
 
-def deleteMessageSingleton(request, pk):
+def deleteMessage(request, pk):
 	""" Authenticated user can delete messages inside the room.
 
 	Args:
@@ -220,7 +220,7 @@ def deleteMessageSingleton(request, pk):
 		"""
 	return render(request, 'base/delete.html', {'obj': message})
 
-def activityPageSingleton(request):
+def activityPage(request):
 	""" Shows the recent activity page.
 
 	Args:

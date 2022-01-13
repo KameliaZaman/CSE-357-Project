@@ -1,5 +1,8 @@
+from django.core.checks import messages
+from django.http import request
 from django.shortcuts import redirect, render
 from chatting.models import roomModel,messageModel
+from django.http import HttpResponse,JsonResponse
 
 # Create your views here.
 def home(request):
@@ -25,3 +28,15 @@ def checkView(request):
         newRoom.save()
         return redirect('/'+room+'/?username='+userName)
 
+def sendMessage(request):
+    message = request.POST['message']
+    userName = request.POST['username']
+    roomId = request.POST['room_id']
+    newMessage = messageModel.objects.create(value= message, user= userName, room = roomId)
+    newMessage.save()
+    return HttpResponse('Message is sent successfully')
+
+def getMessages(request, room):
+    roomDetails = roomModel.objects.get(name= room)
+    messages = messageModel.objects.filter(room= roomDetails.id)
+    return JsonResponse({"messages": list(messages.values())})

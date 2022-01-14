@@ -10,10 +10,10 @@ def registerPage(request):
 	""" This function creates register page.
 
 	Parameter:
-			request ([String]): [create a request of registration]
+		request ([String]): [create a request of registration]
 
 	Returns:
-			[String]: [renders register page]
+		[String]: [renders register page]
 	"""
 	
 	"""
@@ -22,23 +22,23 @@ def registerPage(request):
 	form = registerUserForm()
 
 	if request.method == 'POST':
-			try:
-				form = registerUserForm(request.POST)
-				if form.is_valid():
-						user = form.save()
-						login(request, user)
-						return redirect('index')
-			except Exception as e:
-					print(e)
-					raise
+		try:
+		 	form = registerUserForm(request.POST)
+			if form.is_valid():
+				user = form.save()
+				login(request, user)
+				return redirect('index')
+		except Exception as e:
+			print(e)
+			raise
 	context = {
 		'form': form
 	}
 
 	"""
-		** Templates: **
-		----------------
-		:template: `register.html`
+	** Templates: **
+	----------------
+	:template: `register.html`
 	"""
 	return render(request, 'register.html', context)
 
@@ -46,10 +46,10 @@ def loginPage(request):
 	"""This function creates login page.
 
 	parameter:
-			request ([String]): [creates a request of login page]
+		request ([String]): [creates a request of login page]
 
 	Returns:
-			[String]: [renders login page]
+		[String]: [renders login page]
 	"""
 
 	"""
@@ -69,17 +69,17 @@ def loginPage(request):
 			raise
 
 
-		"""
-		** Attributes: **
-		-----------------
-		context: Indicates the newly created form.
-		"""
+	"""
+	** Attributes: **
+	-----------------
+	context: Indicates the newly created form.
+	"""
 	context = {'form': form}
 
 	"""
-		** Templates: **
-		----------------
-		:template: `login.html`
+	** Templates: **
+	----------------
+	:template: `login.html`
 	"""
 	return render(request, 'login.html', context)
 
@@ -92,17 +92,17 @@ def logoutPage(request):
 	"""This function creates logout page.
 
 	Parameter:
-			request ([String]): [creates a request of logout page]
+		request ([String]): [creates a request of logout page]
 
 	Returns:
-			[String]: [redirects login page]
+		[String]: [redirects login page]
 	"""
 	logout(request)
 
 	"""
-		** Templates: **
-		----------------
-		:template: `login.html`
+	** Templates: **
+	----------------
+	:template: `login.html`
 	"""
 	return redirect('login')
 
@@ -115,10 +115,10 @@ def newQuestionPage(request):
 	"""This function creates a new question page.
 
 	parameter:
-			request ([String]): [creates a request of new question creation page]
+		request ([String]): [creates a request of new question creation page]
 
 	Returns:
-			[String]: [renders new question page]
+		[String]: [renders new question page]
 	"""
 
 	"""
@@ -146,9 +146,9 @@ def newQuestionPage(request):
 	context = {'form': form}
 
 	"""
-		** Templates: **
-		----------------
-		:template: `new-question.html`
+	** Templates: **
+	----------------
+	:template: `new-question.html`
 	"""
 	return render(request, 'new-question.html', context)
 
@@ -157,10 +157,10 @@ def homePage(request):
 	""" This function creates homepage.
 
 	Parameter:
-			request ([String]): [creates a request of home page]
+		request ([String]): [creates a request of home page]
 
 	Returns:
-			[String]: [renders home page]
+		[String]: [renders home page]
 	"""
 
 	"""
@@ -175,9 +175,9 @@ def homePage(request):
     }
 
 	"""
-		** Templates: **
-		----------------
-		:template: `homePage.html`
+	** Templates: **
+	----------------
+	:template: `homePage.html`
 	"""
 	return render(request, 'homepage.html', context)
 
@@ -186,11 +186,11 @@ def questionPage(request, id):
 	""" This function creates new question page.
 
 	parameter:
-			request ([String]): [creates a request of question page]
-			id ([int]): [creates question id]
+		request ([String]): [creates a request of question page]
+		id ([int]): [creates question id]
 
 	Returns:
-			[String]: [renders question page]
+		[String]: [renders question page]
 	"""
 
 	"""
@@ -214,12 +214,12 @@ def questionPage(request, id):
 			raise
 
 
-		"""
-		** Attributes: **
-		-----------------
-		question: Indicates the newly created question id inherited from questionModel.
-		context: Indicates thenewly created question, response form and reply form.
-		"""
+	"""
+	** Attributes: **
+	-----------------
+	question: Indicates the newly created question id inherited from questionModel.
+	context: Indicates thenewly created question, response form and reply form.
+	"""
 	question = questionModel.objects.get(id=id)
 	context = {
         'question': question,
@@ -228,9 +228,9 @@ def questionPage(request, id):
     }
 
 	"""
-		** Templates: **
-		----------------
-		:template: `question.html`
+	** Templates: **
+	----------------
+	:template: `question.html`
 	"""
 	return render(request, 'question.html', context)
 
@@ -244,10 +244,10 @@ def replyPage(request):
 	"""This function creates reply page.
 
 	Parameter:
-			request ([String]): [creates a request of reply page]
+		request ([String]): [creates a request of reply page]
 
 	Returns:
-			[String]: [redirects to index page]
+		[String]: [redirects to index page]
 	"""
 	if request.method == 'POST':
 		try:
@@ -265,8 +265,8 @@ def replyPage(request):
 			print(e)
 			raise
 	"""
-		** Templates: **
-		----------------
-		:template: `index`
+	** Templates: **
+	----------------
+	:template: `index`
 	"""
 	return redirect('index')

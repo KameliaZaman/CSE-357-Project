@@ -1,0 +1,21 @@
+{% extends 'assignments/base.html' %}
+
+{% block title %}
+Submit Assignments
+{% endblock title %}
+
+
+{% block body %}
+<div class="container">
+
+
+  <form action="./" method="post" enctype="multipart/form-data" style="background-color: antiquewhite;padding: 20px;">
+    {% csrf_token %}
+    {{form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+</div>
+
+
+{% endblock %}

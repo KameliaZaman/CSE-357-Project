@@ -1,0 +1,62 @@
+{% extends 'assignments/base.html' %}
+
+{% block title %}
+View All Assignments Submission
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container my-5">
+
+    <div class="my-6" style="background-color: antiquewhite;">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-3 my-2 ">
+                <h5 class="text-center">Name - ID</h5>
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Submission Date-Time</h5>
+
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Question</h5>
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Answer</h5>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr>
+    {% for x in all %}
+
+    <div class="my-6" style="background-color: antiquewhite;">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-3 my-2">
+                <h6 class="text-center mt-2 mb-2 text-align: justify;">{{x.studentName}} - {{x.studentId}}</h6>
+            
+            </div>
+            <div class="col-md-3 my-2">
+                <h6 class="text-center mt-2 mb-2 text-align: justify;">{{x.submitTime}}</h6>
+
+            </div>
+            <div class="col-md-3 my-2">
+                <a href="{{x.files.url}}" target="_blank" class="text-center mt-2 mb-2 text-align: justify;"><div>{{x.questionFile.url |slice:"16:"}}</div> </a>
+
+            </div>
+            <div class="col-md-3 my-2">
+                <a href="{{x.files.url}}" target="_blank" class="text-center mt-2 mb-2 text-align: justify;"><div>{{x.answerFile.url |slice:"16:"}}</div> </a>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr>
+    {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

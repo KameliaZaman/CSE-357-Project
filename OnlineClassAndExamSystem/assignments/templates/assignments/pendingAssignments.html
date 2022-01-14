@@ -1,0 +1,74 @@
+{% extends 'assignments/base.html' %}
+
+{% block title %}
+Pending Assignments
+{% endblock title %}
+
+
+
+{% block body %}
+
+
+<div class="container my-5">
+    <h4>Pending Assignments</h4>
+
+    <div class="my-6" style="background-color: antiquewhite;">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-3 my-2 ">
+                <h5 class="text-center">File</h5>
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Submission Date</h5>
+
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Course Name</h5>
+            </div>
+
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">Submit</h5>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr>
+    {% for x in all %}
+
+    {% if x.is_past_due %}
+   
+
+    <div class="my-6" style="background-color: antiquewhite;">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-3 my-2">
+                    <a href="{{x.files.url}}" target="_blank" class="text-center mt-2 mb-2 text-align: justify;"><div>{{x.files.url |slice:"16:"}}</div> </a>
+            
+            </div>
+            <div class="col-md-3 my-2">
+                <h6 class="text-center mt-2 mb-2 text-align: justify;">{{x.submissionDate}}</h6>
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;">{{x.courseName}}</h5>
+
+            </div>
+            <div class="col-md-3 my-2">
+                <h5 class="text-center mt-2 mb-2 text-align: justify;" ><button style="margin :20px 0 0 20px;
+                    border-radius: 10px;
+                    height: 35px;
+                    width: 150px;
+                    background-color: #ca4999;"><a href="/assignments/submissionpage" style="color: #fff;
+                    text-decoration: none;
+                    background-color: transparent;">Submit</a></h5></button>
+            </div>
+            
+        </div>
+
+    </div>
+    <hr>
+    {% endif %}
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

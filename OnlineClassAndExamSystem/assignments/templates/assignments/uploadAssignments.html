@@ -1,0 +1,39 @@
+{% extends 'assignments/base.html' %}
+
+{% block title %}
+Upload Assignments
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+
+
+  <form action="./" method="post" enctype="multipart/form-data" style="background-color: antiquewhite;padding: 20px;">
+    {% csrf_token %}
+    {{form.as_p }}
+    <button type="submit" style="margin :30px 0 0px 10px;
+    border-radius: 10px;
+    height: 50px;
+    width: 150px;
+    background-color: #ca4999;
+    color: #fff;">Upload</button>
+  </form>
+
+</div>
+
+<button style="margin :30px 0 40px 120px;
+                    border-radius: 10px;
+                    height: 50px;
+                    background-color: #ca4999;"><a href="/assignments/viewsubmission" style="color: #fff;
+                    text-decoration: none;
+                    background-color: transparent;">View All Submission</a></h5></button>
+
+<button style="margin :30px 20px 40px 50px;
+                    border-radius: 10px;
+                    height: 50px;
+                    background-color: #ca4999;"><a href="/assignments/showassignments" style="color: #fff;
+                    text-decoration: none;
+                    background-color: transparent;">View All Assignments</a></h5></button>
+
+
+{% endblock %}

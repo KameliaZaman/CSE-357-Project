@@ -6,9 +6,21 @@ from django.db import models
 
 # Create your models here.
 class Video(models.Model):
-    """
-    Stores a single video entry,it's all about the video's cation,the course name realted to
-    the video, and the teacher id who's uploading and the model is related to :model:...
+    """This model is used by a teacher to assign the assignments.
+
+    Attributes:
+    ----------
+    videoId: Indicates the character fields of video id and creates.
+    caption: Indicates the character fields of topic name and creates.
+    courseName: Indicates the character fields of course name and creates.
+    teacherId: Indicates the integer fields of teacher id and creates.
+    video =  Indicates the file fields of video recordings and creates.
+
+    Method:
+    ------
+    __str__: Returns the caption of the video recording.
+    
+    
     """
 
     videoId = models.AutoField(primary_key=True)
@@ -18,13 +30,5 @@ class Video(models.Model):
     video=models.FileField(upload_to="video/%y")
 
     def __str__(self):
-        """
-         Parameters
-        ----------
-        name : self
-            Indicate the class itself
-         Returns
-        ----------
-            Show the video caption in the database"""
         return self.caption
         

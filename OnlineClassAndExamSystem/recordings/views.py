@@ -5,16 +5,15 @@ from django.db.models import Q
 
 def index(request):
     """
-    Collect information for an individual :model:`recording.Video`.
+    This is the index page to upload class recording by the teacher.
+	Args: 
+		([String]): [request]	
+	Returns:
+		[String]: [render class recording Uploading page]
+	
+	** Templates: **
+	:template: `recordings/index.html`
 
-    **Context**
-
-    ``Video``
-        An instance of :model:`recording.Video`.
-
-    **Template:**
-
-    :template:`recordings/index.html`
     """
 
     form=videoForm()
@@ -28,16 +27,15 @@ def index(request):
 
 def showVideo(request):
     """
-    Display an individual :model:`recording.Video`.
+    This is the page for viewing all uploaded video for the teachers and students.
+	Args: 
+		([String]): [request]	
+	Returns:
+		[String]: [render Video viewing page]
+	
+	** Templates: **
+	:template: `recordings/showVideo.html`
 
-    **Context**
-
-    ``Video``
-        An instance of :model:`recording.Video`.
-
-    **Template:**
-
-    :template:`recording/showVideo.html`
     """
     if 'q' in request.GET:
         q=request.GET['q']

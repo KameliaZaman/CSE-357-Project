@@ -1,0 +1,58 @@
+{% extends 'recordings/base.html' %}
+
+
+{% block title %}
+Home Page
+{% endblock title %}
+
+{% block css %} 
+
+
+label {
+  
+    padding: 10px 10px 0 0;
+}
+
+input {
+    width:50%;
+    
+}
+
+button a:hover{
+    color: #fff;
+}
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="container">
+
+  
+    <div class="mt-5">
+        <form action="/recordings/" method="post" enctype="multipart/form-data" style="background-color: antiquewhite;padding: 20px;">
+            {% csrf_token %}
+            {{form.as_p }}
+            <button type="submit" style="margin :20px 0 0 0;
+            border-radius: 10px;
+            height: 50px;
+            width: 200px;
+            background-color: #0c6c63;color: white;">Upload</button>
+
+        </form>
+    </div>
+
+    
+
+    <button style="margin :20px 0 0 20px;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    background-color: #0c6c63;"><a style="color: #fff;
+    text-decoration: none;
+    background-color: transparent;" href="showvideo">Show videos</a></button>
+
+</div>
+
+{% endblock %}

@@ -6,21 +6,21 @@ from django import forms
 class registerUserForm(UserCreationForm):
 	""" This class creates user registration form inherited from User creation form.
 
-			** Class: **
-			------------
-			Meta: Model Meta is basically used to change the behavior of model fields.
+	** Class: **
+	------------
+	   Meta: Model Meta is basically used to change the behavior of model fields.
 
-			** Class attributes: **
-			-----------------------
-			model: Name of the model.
-			fields: fields of the model.
-			widgets: widget is Django’s representation of an HTML input element.
+	   ** Class attributes: **
+	   -----------------------
+	   model: Name of the model.
+	   fields: fields of the model.
+	   widgets: widget is Django’s representation of an HTML input element.
 	"""
 	class Meta:
 		model = User
 		fields = ['username', 'email', 'password1', 'password2']
 		widgets = {
-				'email': forms.EmailInput(attrs={
+			'email': forms.EmailInput(attrs={
         'required': True,
         'placeholder': 'lisa@example.com',
         'autofocus': True
@@ -31,15 +31,15 @@ class registerUserForm(UserCreationForm):
         }
 
 
-		"""
-		** Method: **
-		-------------
-		__init__: This method is called when an object is created from a class and it allows the class to initialize the attributes of the class.
-		"""
-		def __init__(self, *args, **kwargs):
-			super(registerUserForm, self).__init__(*args, **kwargs)
-			self.fields['password1'].widget.attrs = {'placeholder': 'password'}
-			self.fields['password2'].widget.attrs = {'placeholder': 'confirm password'}
+	"""
+	** Method: **
+	-------------
+	   __init__: This method is called when an object is created from a class and it allows the class to initialize the attributes of the class.
+	"""
+	def __init__(self, *args, **kwargs):
+		super(registerUserForm, self).__init__(*args, **kwargs)
+		self.fields['password1'].widget.attrs = {'placeholder': 'password'}
+		self.fields['password2'].widget.attrs = {'placeholder': 'confirm password'}
 
 
 class loginForm(AuthenticationForm):
@@ -79,8 +79,8 @@ class newReplyForm(forms.ModelForm):
 		model = responseOnQuestion
 		fields = ['body']
 		widgets = {
-				'body': forms.Textarea(attrs={
-				'rows': 2,
-				'placeholder': 'What are your thoughts?'
+			'body': forms.Textarea(attrs={
+			'rows': 2,
+			'placeholder': 'What are your thoughts?'
         	})
-        }
+	}

@@ -8,6 +8,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+"""
+UserAccount model is for storing user account entry 
+
+Attributes:
+---------------
+userName: Indicates the character field for user name
+userEmail: Indicates the character field  for user email
+userPhone: Indicates the character field for user phone number
+"""
 
 
 class userAccount(models.Model):
@@ -22,6 +31,23 @@ class userAccount(models.Model):
 		return str(self.userName)
 
 class blog(models.Model):
+
+  """
+    This model is for storing blog item 
+    Attributes:
+    ------------
+    title : Indicates the character file for title
+    author : Indicates the character file for author
+    Body : This will create a character field to store body 
+
+
+    Method:
+    -----------
+    get_absolute_urle: This will return url
+    
+    """
+
+
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User,on_delete = models.CASCADE)
     body = models.TextField()
@@ -46,7 +72,12 @@ class AdminHOD(models.Model):
     updated_at=models.DateTimeField(auto_now_add=True)
     objects=models.Manager()
 
+
+
+
 """ 
+Student model will creates an item for student field
+
 
 """
 

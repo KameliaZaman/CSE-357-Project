@@ -1,0 +1,38 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+     
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+       
+        <div class="info">
+          <a href="{% url 'admin_profile' %}" class="d-block">{{ user.username }}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+<li class="nav-item">
+    {% url 'admin_send_notification_student' as admin_send_notification_student %}
+     <a href="{% url 'admin_send_notification_student' %}" class="nav-link {% if request.path == admin_send_notification_student %} active {% endif %}">
+      <i class="nav-icon fas fa-th"></i>
+      <p>
+        Send Student Notification
+      </p>
+    </a>
+  </li>
+
+
+</ul>
+</nav>
+<!-- /.sidebar-menu -->
+</div>
+<!-- /.sidebar -->
+</aside>

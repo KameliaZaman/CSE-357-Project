@@ -1,0 +1,67 @@
+{% extends 'base.html' %} 
+{% block content %} 
+
+
+<div class="container">
+ <h3>{{ room }}-- Room</h3>
+ <div id ="display">
+
+
+ </div>
+
+ <script>
+  $(document).ready(function(){
+  
+  setInterval(function(){
+      $.ajax({
+          type: 'GET',
+          url : "/getMessages/{{room}}/",
+          success: function(response){
+              console.log(response);
+              $("#display").empty();
+              for (var key in response.messages)
+              {
+                  var temp="<div class='containerRoom darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-left'>"+response.messages[key].date+"</span></div>";
+                  $("#display").append(temp);
+              }
+          },
+          error: function(response){
+              alert('An error occured')
+          }
+      });
+  },1000);
+  })
+  </script>
+  <div class="form-group">  
+    <form id="post-form"> 
+        {% csrf_token %}
+    
+        <input type="hidden" name="username" id="username" value ="{{username}}"/>
+        <input type="hidden" name="room_id" id="room_id" 
+        value ="{{roomDetails.id}}"/>
+        <input type="text" name="message" id="message" width="80px" />
+        <input type="submit" value="send">
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+    $(document).on('submit','#post-form',function(e){
+      e.preventDefault();
+  
+      $.ajax({
+        type:'POST',
+        url:'/send',
+        data:{
+            username:$('#username').val(),
+            room_id:$('#room_id').val(),
+            message:$('#message').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success: function(data){
+           //alert(data)
+        }
+      });
+      document.getElementById('message').value = ''
+    });
+  </script>
+{% endblock %}

@@ -10,4 +10,10 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('user/', views.userPage, name="user-page"),
 	path('profile/<str:pk_test>/', views.profileView, name="user"),
+
+	path('submissionView/',views.submissionViewPage,name='submissionView'),
+
+	path('uploadCode/',views.uploadCode,name='uploadCode'),
+
+	path('runCode', views.runCode, name="runCode"),
 ]

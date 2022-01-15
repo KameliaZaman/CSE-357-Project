@@ -320,8 +320,11 @@ object the first time, the query is executed.</p>
 <span class="sig-prename descclassname"><span class="pre">upload.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#upload.views.home" title="Permalink to this definition"></a></dt>
 <dd><p>Display a basic home page</p>
 <p><strong>Context</strong></p>
+<blockquote>
+<div><p>“none”</p>
+</div></blockquote>
 <p><strong>Template:</strong></p>
-<p>:template:’home.html’</p>
+<p>Returns response to home.html page</p>
 </dd></dl>
 
 <dl class="py function">
@@ -332,11 +335,13 @@ and pass the result to a template to show those in a form of
 table. Use a model :model:’upload.questionAndSolution’.</p>
 <p><strong>Context</strong></p>
 <dl class="simple">
-<dt>“quesAndSolutions”</dt><dd><p>An instance of :model:’upload.questionAndSolution’.</p>
+<dt>“q”</dt><dd><p>[string]: A request send by the user for searching</p>
+</dd>
+<dt>“quesAndSolutions”</dt><dd><p>[list] : list of all questionAndSolution class objects that matches the subject or smester</p>
 </dd>
 </dl>
 <p><strong>Template:</strong></p>
-<p>:template:’quesAndSolveList.html’</p>
+<p>Returns response to the quesAndSolveList.html template for showing the result</p>
 </dd></dl>
 
 <dl class="py function">
@@ -346,11 +351,11 @@ table. Use a model :model:’upload.questionAndSolution’.</p>
 Use a model :model:’upload.questionAndSolution’.</p>
 <p><strong>Context</strong></p>
 <dl class="simple">
-<dt>“form”</dt><dd><p>An instance of :form:’upload.questionAndSolutionForm’.</p>
+<dt>“form”</dt><dd><p>[questionAndSolutionForm]: An instance of questionAndSolutionForm class</p>
 </dd>
 </dl>
 <p><strong>Template:</strong></p>
-<p>:template:’upQuesAndSolveList.html’</p>
+<p>Return response to upQuesAndSolveList.html page .</p>
 </dd></dl>
 
 </section>

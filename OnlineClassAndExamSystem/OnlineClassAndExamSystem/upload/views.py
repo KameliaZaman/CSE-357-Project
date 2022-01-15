@@ -10,9 +10,11 @@ def home(request):
 
     **Context**
 
+        "none"
+
     **Template:**
 
-    :template:'home.html'
+    Returns response to home.html page
     """
     return render(request,'home.html')
 
@@ -24,12 +26,14 @@ def showQuestionAndSolutionList(request):
 
     **Context**
 
+    "q"
+        [string]: A request send by the user for searching
     "quesAndSolutions"
-        An instance of :model:'upload.questionAndSolution'.
+        [list] : list of all questionAndSolution class objects that matches the subject or smester
 
     **Template:**
 
-    :template:'quesAndSolveList.html'
+    Returns response to the quesAndSolveList.html template for showing the result
     """
     q = request.GET.get('q') if request.GET.get('q')!=None  else ''
     quesAndSolutions = questionAndSolution.objects.filter(
@@ -46,11 +50,11 @@ def uploadQuestionAndSolution(request):
     **Context**
 
     "form"
-        An instance of :form:'upload.questionAndSolutionForm'.
+        [questionAndSolutionForm]: An instance of questionAndSolutionForm class
 
     **Template:**
 
-    :template:'upQuesAndSolveList.html'
+    Return response to upQuesAndSolveList.html page .
     """
     if request.method == 'POST':
         form = questionAndSolutionForm(request.POST, request.FILES)

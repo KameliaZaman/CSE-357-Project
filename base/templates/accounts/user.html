@@ -1,0 +1,17 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Student Information</h5>
+			<hr>
+			<p>Student Email: {{user.useraccount.userEmail}}</p>
+			<p>Student Phone: {{user.useraccount.userPhone}}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

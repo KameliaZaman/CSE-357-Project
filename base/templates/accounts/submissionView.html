@@ -1,0 +1,65 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+
+      <div class="card card-body text-dark bg-light mb-3">
+  <div class="searchbar">
+      <div class="form-group">
+      <form method='GET' action="">
+          <input type="text"  class="form-control" name="q" placeholder="Search here..."/>
+      </form>
+      </div>
+  </div>
+      <div>
+          <a href="{% url 'submissionView' %}" class ="btn btn-secondary">All</a>
+      </div>
+      <br/>
+
+<h5>Submitted Codes:</h5>
+<table class="table">
+  <thead>
+      <tr>
+          <th>Code Uploaded By</th>
+          <th>Code Name</th>
+          <th>Code File</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for solutionCode in solutionCodes %}
+      <tr>
+          <td>{{ solutionCode.codeUploadedBy }}</td>
+          <td>{{ solutionCode.codeName }}</td>
+          <td>
+              {% if solutionCode.codeFile %}
+              <a href= "{{ solutionCode.codeFile.url }}" class="btn btn-primary" target ="_blank">View Code</a>                  
+              {% endif %}
+              </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<br/>
+<div class="card card-body text-dark bg-light mb-3">
+  <h5>Check with Python IDE:</h5>
+  <hr>
+  <form action="/runCode" method="post">
+    {% csrf_token %}
+<div class="form-group">
+  <label for="codearea">Code Area</label>
+  <textarea type="text" class="form-control" id="codearea" name="codearea" rows="10" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">{{ code }}</textarea>
+</div>
+
+<div class="form-group">
+  <label for="output">Output</label>
+  <textarea type="text" class="form-control" id="output" name="output" rows="4" disabled> {{ output }} </textarea>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+{% endblock %}

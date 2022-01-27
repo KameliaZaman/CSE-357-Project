@@ -42,9 +42,12 @@ class testUrls(SimpleTestCase):
 				url = reverse('new-question')
 				self.assertEquals(resolve(url).func, newQuestionPage)
 
-    # def testQuestionUrlResolves(self):
-    #     url = reverse('question', args=['some-id'])
-    #     self.assertEquals(resolve(url).func, questionPage)
+    		def testQuestionUrlResolves(self):
+				"""
+				This function tests question url.
+				"""
+        			url = reverse('question', args=[1,])
+        			self.assertEquals(resolve(url).func, questionPage)
 
 		def testReplyUrlResolves(self):
 				"""

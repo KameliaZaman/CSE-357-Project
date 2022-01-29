@@ -60,15 +60,17 @@ def checkView(request):
 
     Returns response to room.html template with room and username as a parameter
     """
-    room = request.POST['room_name']
-    userName = request.POST['username']
+    room = request.POST.get('room_name',False)
+    #room = request.POST['room_name']
+    #userName = request.POST['username']
+    userName = request.POST.get('username',False)
 
     if roomModel.objects.filter(name=room).exists():
-        return redirect('/'+room+'/?username='+userName)
+        return redirect('/'+str(room)+'/?username='+str(userName))
     else:
         newRoom = roomModel.objects.create(name=room)
         newRoom.save()
-        return redirect('/'+room+'/?username='+userName)
+        return redirect('/'+str(room)+'/?username='+str(userName))
 
 def sendMessage(request):
     """
@@ -89,9 +91,14 @@ def sendMessage(request):
 
     returns a HttpResponse if the data is saved successfully
     """ 
-    message = request.POST['message']
-    userName = request.POST['username']
-    roomId = request.POST['room_id']
+    message = request.POST.get('message', False)
+    #message = request.POST['message']
+    #userName = request.POST['username']
+    #roomId = request.POST['room_id']
+    userName = request.POST.get('username', False)
+    roomId = request.POST.get('room_id', False)
+
+
     newMessage = messageModel.objects.create(value= message, user= userName, room = roomId)
     newMessage.save()
     return HttpResponse('Message is sent successfully')

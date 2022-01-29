@@ -7,7 +7,7 @@ class TestViews(TestCase):
     This class test the functions of views.py file
     '''
     
-    def test_should_showAssignment_page(self):
+    def test_showAssignment_page(self):
         '''
         This function test the showAssignment method of views file
         '''
@@ -16,7 +16,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response,"assignments/showAssignments.html")
 
-    def test_should_pendingAssignment_page(self):
+    def test_pendingAssignment_page(self):
         '''
         This function test the pendingAssignment method of views file
         
@@ -26,7 +26,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response,"assignments/pendingAssignments.html")
 
 
-    def test_should_show_viewSubmission_page(self):
+    def test_viewSubmission_page(self):
         '''
         This function test the viewAssignment method of views file
         

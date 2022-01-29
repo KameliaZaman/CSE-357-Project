@@ -5,7 +5,7 @@ class TestModels(TestCase):
     '''
     This class test models.py file
     '''
-    def test_should_uploadAssignment(self):
+    def test_uploadAssignment(self):
         '''
         Sets assingmentupload object for testing purpose
 
@@ -14,7 +14,7 @@ class TestModels(TestCase):
         assignmentupload.save()
         self.assertEqual(str(assignmentupload),'Documentation')
 
-    def test_should_assignmentSubmit(self):
+    def test_assignmentSubmit(self):
         '''
         Sets assignmentsubmit object for testing purpose
 

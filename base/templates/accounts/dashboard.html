@@ -4,16 +4,17 @@
 
 <br>
 
-<div class="row">
-	<div class="col-md-5">
-		<div class="card card-body">
+
+		<div class="card card-body text-dark bg-light mb-3">
 			<h5>Users:</h5>
-			<table class="table table-sm">
-				<tr>
+			<table class="table">
+				<thead>
+					<tr>
 					<th></th>
 					<th>User Name</th>
 					<th>Phone</th>
-				</tr>
+					</tr>
+				</thead>			
 
 				{% for user in users %}
 					<tr>
@@ -25,8 +26,8 @@
 
 			</table>
 		</div>
-	</div>
 
-</div>
+
+
 
 {% endblock %}

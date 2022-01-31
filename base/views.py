@@ -20,12 +20,19 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.views.generic import ListView, DetailView, CreateView, UpdateView  
-# Create your views here.
+
 from .models import *
 from .forms import  createUserForm
 from .decorators import unauthenticatedUser, allowedUsers, adminOnly
 
 
+"""
+This is for login and authentication
+
+Shows user page 
+Templates: 'Hodviews.html'
+
+"""
 
 @unauthenticatedUser
 def registerPage(request):
@@ -70,6 +77,12 @@ def loginPage(request):
 	context = {}
 	return render(request, 'accounts/login.html', context)
 
+
+"""
+This is the logout page for user
+
+
+"""
 def logoutUser(request):
 	logout(request)
 	return redirect('login')
@@ -86,6 +99,21 @@ def home(request):
 def userPage(request):
 	
 	return render(request, 'accounts/user.html')
+
+	"""
+	This is for viewing blog page
+
+
+	Templates :blog.html
+	Shows all posts with title
+
+	Templates: blogDerails.html
+	Show The detailed page
+
+
+
+	
+	"""
 
 class blogView(ListView):
     model = blog
@@ -107,7 +135,13 @@ class updateBlogView(UpdateView):
 	fields = ['title','body']
 
 
+"""
+This is firebase request for reloading page
 
+Templates :' notification.html', 'allNotification.html'
+
+
+"""
 
 def showFirebaseJS(request):
     data='importScripts("https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js");' \
